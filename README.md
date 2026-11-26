@@ -10,18 +10,34 @@ An autonomous agent settles tUSD8 invoices for verified merchants on the QDay Ae
 
 ---
 
+## 📌 About
+
+AegisPay is a tUSD8 smart-account system for the QDay Aevum testnet that lets an AI agent pay merchants **safely**. Instead of giving an agent a full private key, the human principal registers an ERC-8004 identity for the agent and issues a scoped session key with a spending budget, per-transaction cap, expiry date, and payee allowlist. Payments above a threshold require a single-use human approval, and the principal can revoke the key instantly.
+
+The project was built from scratch for **Aevum Builder Challenge #1** by **Aishwarya Nevrekar**. It spans three official tracks — Native AI Assistants, Confirmation of Payee, and Decentralized Payments — and every component (contracts, tests, UI, docs, video) is original and MIT licensed.
+
+---
+
+## 🔎 Keywords / Topics
+
+`#Aevum` `#QDay` `#tUSD8` `#AevumBuilderChallenge` `#DoraHacks` `#Hackathon` `#Solidity` `#Foundry` `#EVM` `#SmartAccount` `#AccountAbstraction` `#ERC4337` `#ERC8004` `#SessionKeys` `#AgenticPayments` `#AIAgents` `#AutonomousAgents` `#Stablecoin` `#ConfirmationOfPayee` `#DecentralizedPayments` `#Web3` `#DeFi` `#Payments` `#SmartContracts` `#OpenSource` `#MIT`
+
+Plain-text keywords: Aevum testnet, QDay, tUSD8 stablecoin, agentic payments, AI agent wallet, scoped session keys, smart account, ERC-8004 identity, reputation registry, confirmation of payee, spend caps, session expiry, human approval, kill switch, Foundry, Solidity, viem, DoraHacks hackathon, Web3 payments.
+
+---
+
 ## 🎬 Watch the demo
 
 ![AegisPay animated preview](demo/preview.gif)
 
-**[▶ Full demo — 2:12](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Demo.mp4)** · **[▶ Safety + results highlights — 0:54](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Highlights.mp4)** · [Script](docs/DEMO_SCRIPT.md)
+**[▶ Full demo — 2:19](demo/AegisPay-Demo.mp4)** · **[▶ Safety + results highlights — 1:01](demo/AegisPay-Highlights.mp4)** · [Script](docs/DEMO_SCRIPT.md)
 
 | Video | What it shows | Link |
 |---|---|---|
-| **Full pitch & demo** (2:12) | Hook → problem → architecture → live nine-step flow → failure paths → verified results → roadmap | [Watch MP4](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Demo.mp4) |
-| **Highlights** (0:54) | Safety guardrails, on-chain receipts, kill switch and open-source close | [Watch MP4](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Highlights.mp4) |
+| **Full pitch & demo** (2:19) | Hook → problem → architecture → live nine-step flow → failure paths → verified results → roadmap | [Watch MP4](demo/AegisPay-Demo.mp4) |
+| **Highlights** (1:01) | Safety guardrails, on-chain receipts, kill switch and open-source close | [Watch MP4](demo/AegisPay-Highlights.mp4) |
 
-Both videos are 1280×720 with narration and work without a login. The voice is a generated narrator with an on-screen credit for Aishwarya Nevrekar, not a clone of a real voice.
+Both videos are 1280×720 and hosted **in this repository only** — no external video platform. The narration uses an Indian English female voice (Tara) with an on-screen credit for Aishwarya Nevrekar; it is a generated voice, not a recording of her real voice.
 
 ---
 

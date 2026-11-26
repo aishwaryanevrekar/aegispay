@@ -1,6 +1,6 @@
 # Demo video script (2–3 minutes)
 
-**Recorded video:** [`demo/AegisPay-Demo.mp4`](../demo/AegisPay-Demo.mp4) — 2:12, 1280×720, narrated, with an on-screen credit for **Aishwarya Nevrekar**. The narration is a generated text-to-speech voice (not a clone of Aishwarya's real voice); the visuals, on-chain facts and script are all from this repository.
+**Recorded video:** [`demo/AegisPay-Demo.mp4`](../demo/AegisPay-Demo.mp4) — 2:19, 1280×720, narrated in an **Indian English female voice (Tara)**, with an on-screen credit for **Aishwarya Nevrekar**. The narration is a generated voice (not a recording of Aishwarya's real voice); the visuals, on-chain facts and script are all from this repository. Highlights cut: [`demo/AegisPay-Highlights.mp4`](../demo/AegisPay-Highlights.mp4) — 1:01.
 
 The script below is the narration used in that video, plus optional timing notes if you re-record with your own voice.
 
