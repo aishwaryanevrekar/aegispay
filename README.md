@@ -203,6 +203,7 @@ Least-privilege sessions, strict caps, expiry, payee allowlists, identity bindin
 - [Architecture & threat model](docs/ARCHITECTURE.md)
 - [Live deployment + tx hashes](docs/LIVE_DEPLOYMENT.md)
 - [Demo video script (2–3 min)](docs/DEMO_SCRIPT.md)
+- [YouTube upload kit (title, full description, tags)](docs/YOUTUBE_UPLOAD.md)
 - [DoraHacks submission text](docs/SUBMISSION.md)
 - [Originality & licensing](docs/ORIGINALITY.md)
 

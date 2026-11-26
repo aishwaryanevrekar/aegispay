@@ -39,3 +39,7 @@ Autonomous agents need to pay for APIs and services, but handing one a regular p
 - [x] 21 Foundry tests including failure paths
 - [x] Demo video script + interactive UI
 - [x] Live deployment tx hashes and addresses published in `docs/LIVE_DEPLOYMENT.md`
+
+## YouTube
+
+Use [`docs/YOUTUBE_UPLOAD.md`](YOUTUBE_UPLOAD.md) for the ready-to-paste title, full description, tags and thumbnail instructions. After publishing, paste the YouTube URL here and into the DoraHacks submission.
