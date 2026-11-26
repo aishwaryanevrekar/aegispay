@@ -16,6 +16,8 @@ AegisPay is a tUSD8 smart-account system for the QDay Aevum testnet that lets an
 
 The project was built from scratch for **Aevum Builder Challenge #1** by **Aishwarya Nevrekar**. It spans three official tracks — Native AI Assistants, Confirmation of Payee, and Decentralized Payments — and every component (contracts, tests, UI, docs, video) is original and MIT licensed.
 
+**Tags:** `#Aevum` `#QDay` `#tUSD8` `#AevumBuilderChallenge` `#DoraHacks` `#Hackathon` `#Solidity` `#Foundry` `#EVM` `#SmartAccount` `#AccountAbstraction` `#ERC8004` `#SessionKeys` `#AgenticPayments` `#AIAgents` `#Stablecoin` `#ConfirmationOfPayee` `#Web3` `#OpenSource` `#MIT`
+
 ---
 
 ## 🔎 Tags & discoverability

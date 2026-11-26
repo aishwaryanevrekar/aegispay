@@ -10,6 +10,12 @@
 
 **Live deployment:** [`docs/LIVE_DEPLOYMENT.md`](LIVE_DEPLOYMENT.md) — deployed contracts, roles and 12 confirmed Aevum transactions with explorer links.
 
+## About
+
+AegisPay is a tUSD8 smart-account system on the QDay Aevum testnet that lets an AI agent pay verified merchants safely. Instead of handing the agent a full private key, the human principal registers an ERC-8004 identity and issues a scoped session key with a spending budget, per-transaction cap, expiry, payee allowlist, single-use human approval for large payments, and an instant kill switch. Built from scratch by **Aishwarya Nevrekar** for Aevum Builder Challenge #1; MIT licensed and fully open source.
+
+**Tags:** `#Aevum` `#QDay` `#tUSD8` `#AevumBuilderChallenge` `#DoraHacks` `#Hackathon` `#Solidity` `#Foundry` `#EVM` `#SmartAccount` `#AccountAbstraction` `#ERC8004` `#SessionKeys` `#AgenticPayments` `#AIAgents` `#Stablecoin` `#ConfirmationOfPayee` `#DecentralizedPayments` `#Web3` `#OpenSource` `#MIT`
+
 ## Problem
 
 Autonomous agents need to pay for APIs and services, but handing one a regular private key means handing over the entire balance. Prompt injection, runaway loops, or a leaked key can drain funds. Merchants also have no way to confirm that the payer is a legitimate, identity-bound agent.
