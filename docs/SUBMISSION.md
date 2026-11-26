@@ -8,6 +8,8 @@
 
 **Demo:** `demo/index.html` (interactive UI) + `docs/DEMO_SCRIPT.md` (2–3 min video) + `demo/agent-runner.mjs` (live testnet runner printing tx hashes)
 
+**Live deployment:** [`docs/LIVE_DEPLOYMENT.md`](LIVE_DEPLOYMENT.md) — deployed contracts, roles and 12 confirmed Aevum transactions with explorer links.
+
 ## Problem
 
 Autonomous agents need to pay for APIs and services, but handing one a regular private key means handing over the entire balance. Prompt injection, runaway loops, or a leaked key can drain funds. Merchants also have no way to confirm that the payer is a legitimate, identity-bound agent.
@@ -26,7 +28,7 @@ Autonomous agents need to pay for APIs and services, but handing one a regular p
 - Contracts deployed/broadcast against **QDay Aevum Testnet**, chain ID **44005**, using official **tUSD8** `0x456569838f1d43009A91ebA4263147Afd7233483`.
 - Compiled with `evm_version = "shanghai"` per the starter kit's Aevum gotcha.
 - ERC-8004-compatible identity + reputation adapters; swap in official registries by config.
-- Transaction hashes from `demo/agent-runner.mjs` and `broadcast/` will be linked here after the live run.
+- **Live run complete:** 4 tUSD8 settled across two invoices, 2 reputation receipts, session revoked. Transaction links in [`docs/LIVE_DEPLOYMENT.md`](LIVE_DEPLOYMENT.md).
 
 ## Submission checklist
 
@@ -36,4 +38,4 @@ Autonomous agents need to pay for APIs and services, but handing one a regular p
 - [x] Contracts target Aevum testnet only, test tokens only
 - [x] 21 Foundry tests including failure paths
 - [x] Demo video script + interactive UI
-- [ ] Live deployment tx hashes pasted after final testnet run
+- [x] Live deployment tx hashes and addresses published in `docs/LIVE_DEPLOYMENT.md`

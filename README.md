@@ -78,6 +78,8 @@ Requires Foundry: `curl -L https://foundry.paradigm.xyz | bash && foundryup`. On
 
 ## Live testnet deployment
 
+The stack is **already deployed** on Aevum with a full on-chain demo — see [`docs/LIVE_DEPLOYMENT.md`](docs/LIVE_DEPLOYMENT.md) for addresses and transaction hashes. To redeploy yourself:
+
 ```bash
 cp .env.example .env
 # fill PRIVATE_KEY (testnet only) and get 1 tQDAY + 5 tUSD8 from the faucet
@@ -122,6 +124,7 @@ Least-privilege sessions, strict caps, expiry, payee allowlists, identity bindin
 
 - [Ideation & selection](docs/IDEATION.md)
 - [Architecture & threat model](docs/ARCHITECTURE.md)
+- [Live deployment + tx hashes](docs/LIVE_DEPLOYMENT.md)
 - [Demo video script (2–3 min)](docs/DEMO_SCRIPT.md)
 - [DoraHacks submission text](docs/SUBMISSION.md)
 - [Originality & licensing](docs/ORIGINALITY.md)
