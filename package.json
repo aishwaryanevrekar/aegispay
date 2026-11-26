@@ -1,0 +1,14 @@
+{
+  "name": "aegispay",
+  "version": "1.0.0",
+  "description": "Policy-guarded agentic stablecoin payments on the Aevum testnet (QDay).",
+  "type": "module",
+  "scripts": {
+    "demo": "node demo/agent-runner.mjs",
+    "demo:sim": "node demo/simulate.mjs"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {}
+}
