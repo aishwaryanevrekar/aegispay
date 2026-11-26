@@ -1,14 +1,53 @@
 # AegisPay — Policy-Guarded Agentic Stablecoin Payments
 
-**Aevum Builder Challenge #1 (QDay)** · 100% original code · MIT licensed · open source
+**Aevum Builder Challenge #1 · QDay** · Built by **Aishwarya Nevrekar** · 100% original code · MIT licensed
 
-> Let agents pay. Keep the keys.
+> **Let agents pay. Keep the keys.**
 
-An autonomous agent pays tUSD8 invoices for verified merchants on the QDay Aevum testnet — but only inside a budget, a time window and a payee allowlist. Large payments need a human's single-use approval. One transaction revokes everything.
+An autonomous agent settles tUSD8 invoices for verified merchants on the QDay Aevum testnet — but only inside a budget, a time window and a payee allowlist. Large payments need a human's single-use approval. One transaction revokes everything.
+
+**✅ Live on Aevum (44005) · ✅ 21/21 tests · ✅ 12 confirmed transactions · ✅ Video ready**
+
+---
+
+## 🎬 Watch the demo
+
+![AegisPay animated preview](demo/preview.gif)
+
+**[▶ Full demo — 2:12](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Demo.mp4)** · **[▶ Safety + results highlights — 0:54](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Highlights.mp4)** · [Script](docs/DEMO_SCRIPT.md)
+
+| Video | What it shows | Link |
+|---|---|---|
+| **Full pitch & demo** (2:12) | Hook → problem → architecture → live nine-step flow → failure paths → verified results → roadmap | [Watch MP4](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Demo.mp4) |
+| **Highlights** (0:54) | Safety guardrails, on-chain receipts, kill switch and open-source close | [Watch MP4](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Highlights.mp4) |
+
+Both videos are 1280×720 with narration and work without a login. The voice is a generated narrator with an on-screen credit for Aishwarya Nevrekar, not a clone of a real voice.
+
+---
+
+## ✨ Best of AegisPay
+
+| | | |
+|---|---|---|
+| ![The idea](demo/screenshots/02-idea.png) | ![The flow](demo/screenshots/03-flow.png) |
+| **Identity-bound agent** | **Nine-step on-chain flow** |
+| ![Results](demo/screenshots/04-results.png) | ![Title](demo/screenshots/01-title.png) |
+| **4 tUSD8 settled · 2 receipts** | **Original & MIT licensed** |
+
+**Why it stands out:**
+
+- 🧠 **Innovation (20/100 weight):** the agent itself is a least-privilege, identity-bound economic actor — not just a wallet that pays.
+- 🔐 **Safety first:** per-tx cap, total budget, expiry, payee lock, identity binding, single-use human approvals and an instant kill switch.
+- ✅ **Confirmation of Payee:** a merchant must control an ERC-8004 identity before it can receive tUSD8.
+- ⛓️ **Real Aevum activity:** official tUSD8 on chain 44005, 12 confirmed transactions, explorer links published.
+- 🧪 **Failure paths tested:** 21 Foundry tests cover caps, expiry, revocation, replay and unverified payees.
+- 🧾 **Auditable:** every payment carries a session nonce and writes reputation receipts for agent and merchant.
+
+---
 
 ## Why this idea
 
-Judging weights innovation highest (20/100). AegisPay makes the **agent itself** the subject of the safety story: an identity-bound, least-privilege economic actor. It combines three official tracks — **Native AI Assistants**, **Confirmation of Payee**, and **Decentralized Payments** — in one reproducible flow. Full ideation and scoring: [`docs/IDEATION.md`](docs/IDEATION.md).
+Judging weights innovation highest. AegisPay combines three official tracks — **Native AI Assistants**, **Confirmation of Payee**, and **Decentralized Payments** — in one reproducible flow. The full candidate comparison and scoring matrix is in [`docs/IDEATION.md`](docs/IDEATION.md).
 
 ## What it does
 
@@ -30,9 +69,21 @@ flowchart LR
 2. Factory creates one tUSD8 smart account per principal; principal deposits faucet funds.
 3. Principal issues a **session key**: total cap, per-tx cap, expiry, optional payee lock, approval threshold.
 4. Agent pays a merchant via `payWithService(merchant, amount, invoiceId)`.
-5. Router verifies the merchant's ERC-8004 identity (**Confirmation of Payee**), forwards tUSD8, and writes reputation receipts for both sides.
+5. Router verifies the merchant's ERC-8004 identity, forwards tUSD8, and writes reputation receipts for both sides.
 6. Payments above the threshold require `approvePayment(...)` — a **single-use** human approval.
 7. `revokeSession(agent)` is an instant kill switch.
+
+## Live results on Aevum
+
+| Result | Value |
+|---|---|
+| tUSD8 settled to verified merchant | **4 tUSD8** |
+| Settlement receipts | **2** |
+| Agent reputation | **100** (average of 2 entries) |
+| Session | **Revoked** after the demo |
+| Transactions | **12 confirmed** with explorer links |
+
+Full addresses, roles and transaction hashes: [`docs/LIVE_DEPLOYMENT.md`](docs/LIVE_DEPLOYMENT.md).
 
 ## Repository layout
 
@@ -45,10 +96,13 @@ flowchart LR
 | `test/` | 21 Foundry tests, including all failure paths |
 | `script/Deploy.s.sol` | Deploy stack (real tUSD8 on chain 44005) |
 | `script/DemoFlow.s.sol` | Local Anvil end-to-end walkthrough |
-| `demo/AegisPay-Demo.mp4` | 2:12 narrated demo video, credited to Aishwarya Nevrekar |
+| `demo/AegisPay-Demo.mp4` | Full 2:12 narrated demo video |
+| `demo/AegisPay-Highlights.mp4` | 0:54 safety + results highlights |
+| `demo/preview.gif` | Looping preview shown above |
+| `demo/screenshots/` | Highlight slides from the video |
 | `demo/index.html` | Responsive interactive UI with simulation + plain-language errors |
 | `demo/agent-runner.mjs` | Live testnet runner with retries, receipts and explorer links |
-| `docs/` | Ideation, architecture, demo script, submission, originality |
+| `docs/` | Ideation, architecture, video script, live deployment, submission, originality |
 
 ## Network configuration
 
@@ -77,9 +131,9 @@ node demo/simulate.mjs   # offline walkthrough, no wallet needed
 
 Requires Foundry: `curl -L https://foundry.paradigm.xyz | bash && foundryup`. On macOS network volumes, `make` first removes AppleDouble `._*` files that would otherwise break `solc`.
 
-## Live testnet deployment
+## Live deployment
 
-The stack is **already deployed** on Aevum with a full on-chain demo — see [`docs/LIVE_DEPLOYMENT.md`](docs/LIVE_DEPLOYMENT.md) for addresses and transaction hashes. To redeploy yourself:
+The stack is **already deployed** on Aevum with a full on-chain demo — see [`docs/LIVE_DEPLOYMENT.md`](docs/LIVE_DEPLOYMENT.md). To redeploy yourself:
 
 ```bash
 cp .env.example .env
@@ -95,11 +149,9 @@ npm install
 node --env-file=.env demo/agent-runner.mjs
 ```
 
-The runner prints every transaction hash with an explorer link, waits for receipts, retries RPC failures, verifies the payee, executes the two invoices, reads reputation and revokes the key.
-
 ### Environment variables
 
-See [`.env.example`](.env.example). Required: `AEVUM_RPC_URL`, `PRIVATE_KEY`, `AGENT_PRIVATE_KEY`, `MERCHANT_PRIVATE_KEY`, and the four deployed addresses. Optional: explorer URL, payment amounts, session duration. **Never commit `.env`.**
+See [`.env.example`](.env.example). Required: `AEVUM_RPC_URL`, `PRIVATE_KEY`, `AGENT_PRIVATE_KEY`, `MERCHANT_PRIVATE_KEY`, and the four deployed addresses. **Never commit `.env`.**
 
 ## API reference
 
@@ -121,6 +173,14 @@ Full details, threat model and roadmap: [`docs/ARCHITECTURE.md`](docs/ARCHITECTU
 
 Least-privilege sessions, strict caps, expiry, payee allowlists, identity binding, single-use approvals, instant revocation, and a `PaymentExecuted` nonce for a gap-free on-chain audit trail. The agent cannot call arbitrary contracts and never holds the funds itself.
 
+## Submission
+
+- **DoraHacks:** https://dorahacks.io/hackathon/qday/detail — deadline **11 Dec 2026, 08:00 UTC**
+- **Full video:** [direct MP4](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Demo.mp4)
+- **Highlights:** [direct MP4](https://raw.githubusercontent.com/aishwaryanevrekar/aegispay/main/demo/AegisPay-Highlights.mp4)
+- **Code:** https://github.com/aishwaryanevrekar/aegispay
+- **Paste-ready description:** [`docs/SUBMISSION.md`](docs/SUBMISSION.md)
+
 ## Docs
 
 - [Ideation & selection](docs/IDEATION.md)
@@ -132,4 +192,4 @@ Least-privilege sessions, strict caps, expiry, payee allowlists, identity bindin
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). All code written from scratch for Aevum Builder Challenge #1.
