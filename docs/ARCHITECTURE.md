@@ -71,7 +71,7 @@ One account per principal, discoverable via `accountOf(owner)`. The router is in
 - Explorer contract verification is not available yet — link the repo + deployment transaction instead.
 - `eth_getLogs` is capped at 1,000 blocks; the UI/runner uses direct contract reads rather than wide log scans.
 - No WebSocket RPC — the runner polls over HTTPS.
-- Faucet grants 5 tUSD8 per verified Discord member, so the live demo uses 4 + 8 units across two invoices only after topping up; the local Anvil demo mints freely.
+- Faucet grants 5 tUSD8 per verified Discord member, so the live demo uses 1 + 3 tUSD8 across two invoices; the local Anvil demo mints freely.
 
 ## API reference (selected)
 

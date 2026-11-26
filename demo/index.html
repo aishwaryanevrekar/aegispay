@@ -83,7 +83,7 @@
       <h2>Live session policy</h2>
       <div class="sub">The agent never holds funds — it only has permission to spend under these rules.</div>
       <div class="stats">
-        <div class="stat"><span>Budget left</span><strong id="budget">20.00</strong></div>
+        <div class="stat"><span>Budget left</span><strong id="budget">5.00</strong></div>
         <div class="stat"><span>Paid out</span><strong id="paid">0.00</strong></div>
         <div class="stat"><span>Receipts</span><strong id="receipts">0</strong></div>
       </div>
@@ -117,11 +117,11 @@
   const steps = [
     ["01", "Register agent identity", "principal registers ERC-8004 agent card"],
     ["02", "Bind runtime key", "identity authorizes the agent's signing address"],
-    ["03", "Fund smart account", "principal deposits 50 tUSD8 via factory"],
-    ["04", "Issue scoped key", "20 cap · 10/tx · 1h · approval above 5"],
-    ["05", "Small invoice settles", "agent pays 4 tUSD8 to verified merchant"],
-    ["06", "Human approves large invoice", "single-use approval for 8 tUSD8"],
-    ["07", "Large invoice settles", "agent pays the approved 8 tUSD8"],
+    ["03", "Fund smart account", "principal deposits 5 tUSD8 via factory"],
+    ["04", "Issue scoped key", "5 cap · 3/tx · 1h · approval above 2"],
+    ["05", "Small invoice settles", "agent pays 1 tUSD8 to verified merchant"],
+    ["06", "Human approves large invoice", "single-use approval for 3 tUSD8"],
+    ["07", "Large invoice settles", "agent pays the approved 3 tUSD8"],
     ["08", "Receipts + reputation", "2 settlement events, feedback score 100"],
     ["09", "Kill switch", "principal revokes the session key"],
   ];
@@ -151,10 +151,10 @@
     consoleEl.scrollTop = consoleEl.scrollHeight;
   }
   function refresh() {
-    budgetEl.textContent = (20 - state.paid).toFixed(2);
+    budgetEl.textContent = (5 - state.paid).toFixed(2);
     paidEl.textContent = state.paid.toFixed(2);
     receiptsEl.textContent = state.receipts;
-    bar.style.width = Math.min(100, state.paid / 20 * 100) + "%";
+    bar.style.width = Math.min(100, state.paid / 5 * 100) + "%";
   }
   const hash = (s) => "0x" + Array.from({ length: 8 }, (_, i) => ((s.charCodeAt(i % s.length) * (i + 7)) % 16).toString(16)).join("") + "…" + s.length + "c1";
 
@@ -170,11 +170,11 @@
       });
       statusEl.textContent = `Step ${steps[i][0]} — ${steps[i][1]}`;
       if (i === 4 || i === 6) {
-        state.paid += i === 4 ? 4 : 8; state.receipts++; refresh();
-        out(`✓ paid ${i === 4 ? 4 : 8} tUSD8 · tx ${hash(steps[i][1])}`, "ok");
+        state.paid += i === 4 ? 1 : 3; state.receipts++; refresh();
+        out(`✓ paid ${i === 4 ? 1 : 3} tUSD8 · tx ${hash(steps[i][1])}`, "ok");
         out(`  receipt: ${i === 4 ? "0xinv1" : "0xinv2"} · explorer-test.qday.info/tx/…`, "dim");
       } else if (i === 5) {
-        out("✓ human approved one 8 tUSD8 payment (single use)", "ok");
+        out("✓ human approved one 3 tUSD8 payment (single use)", "ok");
       } else if (i === 8) {
         state.revoked = true;
         out("✓ session revoked — agent can no longer spend", "ok");
@@ -184,7 +184,7 @@
       await wait(520);
     }
     document.querySelectorAll(".step").forEach(el => el.classList.add("done"));
-    statusEl.textContent = "Complete — 12 tUSD8 settled, 2 receipts, key revoked.";
+    statusEl.textContent = "Complete — 4 tUSD8 settled, 2 receipts, key revoked.";
     document.getElementById("run").disabled = false;
     running = false;
   }

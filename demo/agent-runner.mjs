@@ -135,22 +135,22 @@ async function main() {
   await send("03", merchantWallet, ROUTER, "registerMerchant", abi.router, ["Acme API", merchantId]);
 
   // 4. Fund the smart account with faucet tUSD8.
-  await send("04", principalWallet, TUSD8, "approve", abi.token, [account, units("50")]);
-  await send("04", principalWallet, account, "deposit", abi.account, [units("50")]);
-  log("04", `Deposited 50 tUSD8 (balance ${formatUnits(await publicClient.readContract({ address: TUSD8, abi: abi.token, functionName: "balanceOf", args: [account] }), 6)})`);
+  await send("04", principalWallet, TUSD8, "approve", abi.token, [account, units("5")]);
+  await send("04", principalWallet, account, "deposit", abi.account, [units("5")]);
+  log("04", `Deposited 5 tUSD8 (balance ${formatUnits(await publicClient.readContract({ address: TUSD8, abi: abi.token, functionName: "balanceOf", args: [account] }), 6)})`);
 
-  // 5. Issue a scoped key: 20 total, 10/tx, 1h expiry, 5-unit human-approval threshold.
+  // 5. Issue a scoped key: 5 total, 3/tx, 1h expiry, 2-unit human-approval threshold.
   await send("05", principalWallet, account, "issueSession", abi.account,
-    [agent, agentId, units("20"), units("10"), BigInt(sleep(3600)), "0x0000000000000000000000000000000000000000", units("5")]);
-  log("05", "Session scoped: 20 cap / 10 per-tx / 1h / approval >5");
+    [agent, agentId, units("5"), units("3"), BigInt(sleep(3600)), "0x0000000000000000000000000000000000000000", units("2")]);
+  log("05", "Session scoped: 5 cap / 3 per-tx / 1h / approval >2");
 
   // 6. Small payment runs fully autonomously.
-  await send("06", agentWallet, account, "payWithService", abi.account, [merchant, units("4"), keccak256(toHex("invoice-2001"))]);
+  await send("06", agentWallet, account, "payWithService", abi.account, [merchant, units("1"), keccak256(toHex("invoice-2001"))]);
 
   // 7. High-value payment: human pre-approval (single use) then agent settles.
   //    Authorized recipient inside payWithService is the router.
-  await send("07", principalWallet, account, "approvePayment", abi.account, [agent, ROUTER, units("8"), 2n]);
-  await send("07", agentWallet, account, "payWithService", abi.account, [merchant, units("8"), keccak256(toHex("invoice-2002"))]);
+  await send("07", principalWallet, account, "approvePayment", abi.account, [agent, ROUTER, units("3"), 2n]);
+  await send("07", agentWallet, account, "payWithService", abi.account, [merchant, units("3"), keccak256(toHex("invoice-2002"))]);
 
   // 8. Verifiable receipts and reputation.
   const summary = await publicClient.readContract({ address: REPUTATION, abi: abi.reputation, functionName: "getSummary", args: [agentId] });

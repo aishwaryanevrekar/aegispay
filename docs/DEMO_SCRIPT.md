@@ -20,11 +20,11 @@ Run in order, narrating tx hashes:
 
 1. `factory.createAccount()` — "one account per principal."
 2. `identity.register()` + `setAgentAddress()` — "the agent's identity is bound to its runtime key."
-3. `token.approve()` + `account.deposit(50)` — "funded with faucet tUSD8."
-4. `account.issueSession(...)` — "20 total, 10 per transaction, 1 hour, human approval above 5."
-5. `agent: account.payWithService(merchant, 4, ref)` — "small invoice settles fully autonomously."
-6. `principal: account.approvePayment(agent, router, 8, 2)` — "large invoice: a single-use human approval."
-7. `agent: account.payWithService(merchant, 8, ref)` — "and the agent settles it."
+3. `token.approve()` + `account.deposit(5)` — "funded with faucet tUSD8."
+4. `account.issueSession(...)` — "5 total, 3 per transaction, 1 hour, human approval above 2."
+5. `agent: account.payWithService(merchant, 1, ref)` — "small invoice settles fully autonomously."
+6. `principal: account.approvePayment(agent, router, 3, 2)` — "large invoice: a single-use human approval."
+7. `agent: account.payWithService(merchant, 3, ref)` — "and the agent settles it."
 
 > "The router confirms the payee is ERC-8004 registered before it forwards tUSD8, and writes a reputation receipt for both sides."
 
@@ -32,14 +32,14 @@ Run in order, narrating tx hashes:
 
 Use tests or call the buttons in the UI:
 
-- 11 tUSD8 payment → "rejected by the per-tx cap."
+- 4 tUSD8 payment → "rejected by the per-tx cap."
 - `vm.warp` past expiry → "expired keys stop working on their own."
 - `revokeSession()` → "instant kill switch."
 - Unregistered payee → "Confirmation of Payee rejects it."
 
 ## 2:05–2:35 — Results + close
 
-> "Twelve tUSD8 settled, two verifiable receipts, identity-bound on both ends, and the key revoked. Everything is original, MIT-licensed, and reproducible from the repo. The same contracts can ship on mainnet with the official registries and ERC-4337 paymasters."
+> "Four tUSD8 settled, two verifiable receipts, identity-bound on both ends, and the key revoked. Everything is original, MIT-licensed, and reproducible from the repo. The same contracts can ship on mainnet with the official registries and ERC-4337 paymasters."
 
 ## Finalist version (3–5 min)
 
