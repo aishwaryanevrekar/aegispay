@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AegisPay — Agentic payments with guardrails</title>
+  <style>
+    :root {
+      --bg: #080b16; --panel: #11162a; --panel2: #171e38; --line: #263055;
+      --text: #eaf0ff; --muted: #9aa7cc; --accent: #6ee7ff; --accent2: #a78bfa;
+      --ok: #4ade80; --warn: #fbbf24; --err: #fb7185;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: radial-gradient(1200px 600px at 70% -10%, #1b2350 0%, var(--bg) 55%); color: var(--text); font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { color: var(--accent); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 20px 60px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; font-size: 22px; }
+    .mark { width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: grid; place-items: center; color: #08101f; font-weight: 900; }
+    .badge { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 7px 13px; color: var(--muted); font-size: 13px; }
+    .badge b { color: var(--accent); }
+    h1 { font-size: clamp(30px, 5vw, 50px); line-height: 1.08; margin: 44px 0 14px; letter-spacing: -.035em; }
+    h1 span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lede { color: var(--muted); max-width: 720px; font-size: 17px; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+    .chip { background: var(--panel2); border: 1px solid var(--line); border-radius: 9px; padding: 7px 11px; font-size: 13px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 18px; margin-top: 36px; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: linear-gradient(180deg, var(--panel), #0d1224); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+    .card h2 { margin: 0 0 4px; font-size: 17px; }
+    .card .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .flow { display: grid; gap: 8px; }
+    .step { display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding: 11px 12px; border-radius: 12px; border: 1px solid transparent; background: rgba(255,255,255,.02); transition: .25s; }
+    .step .n { width: 28px; height: 28px; border-radius: 9px; background: var(--panel2); border: 1px solid var(--line); display: grid; place-items: center; font-size: 12px; color: var(--muted); }
+    .step b { font-size: 14px; }
+    .step small { display: block; color: var(--muted); font-size: 12px; }
+    .step.active { border-color: var(--accent); background: rgba(110,231,255,.08); box-shadow: 0 0 0 1px rgba(110,231,255,.15); }
+    .step.done .n { background: rgba(74,222,128,.16); border-color: var(--ok); color: var(--ok); }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    button { font: inherit; cursor: pointer; border-radius: 10px; border: 1px solid var(--line); background: var(--panel2); color: var(--text); padding: 9px 14px; }
+    button:hover { border-color: var(--accent); }
+    button.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #07101d; border: 0; font-weight: 700; }
+    button.danger { color: var(--err); }
+    .meter { height: 10px; border-radius: 99px; background: var(--panel2); overflow: hidden; border: 1px solid var(--line); }
+    .meter > i { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .4s; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+    .stat { background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 11px; }
+    .stat span { display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+    .stat strong { font-size: 20px; }
+    .console { background: #060912; border: 1px solid var(--line); border-radius: 12px; padding: 12px; height: 220px; overflow: auto; font: 12px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .console div { white-space: pre-wrap; word-break: break-word; }
+    .console .ok { color: var(--ok); } .console .warn { color: var(--warn); } .console .err { color: var(--err); } .console .dim { color: var(--muted); }
+    .fail { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .fail button { font-size: 12px; padding: 7px 10px; }
+    .note { color: var(--muted); font-size: 12px; margin-top: 12px; }
+    code { background: var(--panel2); padding: 2px 6px; border-radius: 6px; font-size: 12px; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 18px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><div class="mark">A</div> AegisPay</div>
+    <div class="badge">QDay Aevum Testnet · chain <b>44005</b> · tUSD8 6 decimals</div>
+  </header>
+
+  <h1>Let agents pay.<br /><span>Keep the keys.</span></h1>
+  <p class="lede">An AI agent can settle tUSD8 invoices for a verified merchant — but only inside a budget, a time window and a payee allowlist. Large payments need a human's single-use approval. One transaction revokes everything.</p>
+  <div class="chips">
+    <span class="chip">ERC-8004 identity</span><span class="chip">Scoped session keys</span>
+    <span class="chip">Confirmation of Payee</span><span class="chip">Single-use approvals</span>
+    <span class="chip">On-chain reputation</span><span class="chip">MIT / open source</span>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>End-to-end flow</h2>
+      <div class="sub">Nine steps from principal setup to kill switch.</div>
+      <div class="flow" id="flow"></div>
+    </section>
+
+    <section class="card">
+      <h2>Live session policy</h2>
+      <div class="sub">The agent never holds funds — it only has permission to spend under these rules.</div>
+      <div class="stats">
+        <div class="stat"><span>Budget left</span><strong id="budget">20.00</strong></div>
+        <div class="stat"><span>Paid out</span><strong id="paid">0.00</strong></div>
+        <div class="stat"><span>Receipts</span><strong id="receipts">0</strong></div>
+      </div>
+      <div class="meter"><i id="bar"></i></div>
+      <p class="note" id="status">Idle. Press “Run simulated flow” to walk the whole path.</p>
+      <div class="controls">
+        <button class="primary" id="run">▶ Run simulated flow</button>
+        <button id="reset">Reset</button>
+      </div>
+      <div class="console" id="console"><div class="dim">$ awaiting demo…</div></div>
+      <div class="fail">
+        <button class="danger" data-fail="cap">Exceed per-tx cap</button>
+        <button class="danger" data-fail="expired">Expired key</button>
+        <button class="danger" data-fail="revoked">Revoked key</button>
+        <button class="danger" data-fail="payee">Unverified payee</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:18px">
+    <h2>Run it on the real testnet</h2>
+    <div class="sub">Everything below is reproducible from the repository.</div>
+    <p><code>make test</code> → 21 passing tests &nbsp;·&nbsp; <code>make demo</code> → local Anvil run &nbsp;·&nbsp; <code>node --env-file=.env demo/agent-runner.mjs</code> → live Aevum run with tx hashes.</p>
+    <p class="note"> explorer: https://explorer-test.qday.info · faucet: https://faucet.qday.info/en · tUSD8: 0x456569838f1d43009A91ebA4263147Afd7233483</p>
+  </section>
+
+  <footer>Original code · MIT licensed · Built for Aevum Builder Challenge #1. Simulated hashes shown above are illustrative; live hashes come from the runner and explorer.</footer>
+</div>
+
+<script>
+  const steps = [
+    ["01", "Register agent identity", "principal registers ERC-8004 agent card"],
+    ["02", "Bind runtime key", "identity authorizes the agent's signing address"],
+    ["03", "Fund smart account", "principal deposits 50 tUSD8 via factory"],
+    ["04", "Issue scoped key", "20 cap · 10/tx · 1h · approval above 5"],
+    ["05", "Small invoice settles", "agent pays 4 tUSD8 to verified merchant"],
+    ["06", "Human approves large invoice", "single-use approval for 8 tUSD8"],
+    ["07", "Large invoice settles", "agent pays the approved 8 tUSD8"],
+    ["08", "Receipts + reputation", "2 settlement events, feedback score 100"],
+    ["09", "Kill switch", "principal revokes the session key"],
+  ];
+  const flow = document.getElementById("flow");
+  const consoleEl = document.getElementById("console");
+  const statusEl = document.getElementById("status");
+  const budgetEl = document.getElementById("budget");
+  const paidEl = document.getElementById("paid");
+  const receiptsEl = document.getElementById("receipts");
+  const bar = document.getElementById("bar");
+  let running = false;
+  let state = { paid: 0, receipts: 0, revoked: false };
+
+  steps.forEach(([n, title, detail], i) => {
+    const el = document.createElement("div");
+    el.className = "step"; el.id = "step" + i;
+    el.innerHTML = `<div class="n">${n}</div><div><b>${title}</b><small>${detail}</small></div>`;
+    flow.appendChild(el);
+  });
+
+  const wait = (ms) => new Promise(r => setTimeout(r, ms));
+  function out(text, cls = "") {
+    const el = document.createElement("div");
+    if (cls) el.className = cls;
+    el.textContent = text;
+    consoleEl.appendChild(el);
+    consoleEl.scrollTop = consoleEl.scrollHeight;
+  }
+  function refresh() {
+    budgetEl.textContent = (20 - state.paid).toFixed(2);
+    paidEl.textContent = state.paid.toFixed(2);
+    receiptsEl.textContent = state.receipts;
+    bar.style.width = Math.min(100, state.paid / 20 * 100) + "%";
+  }
+  const hash = (s) => "0x" + Array.from({ length: 8 }, (_, i) => ((s.charCodeAt(i % s.length) * (i + 7)) % 16).toString(16)).join("") + "…" + s.length + "c1";
+
+  async function run() {
+    if (running) return;
+    running = true;
+    reset(false);
+    document.getElementById("run").disabled = true;
+    for (let i = 0; i < steps.length; i++) {
+      document.querySelectorAll(".step").forEach((el, j) => {
+        el.classList.toggle("active", j === i);
+        if (j < i) el.classList.add("done");
+      });
+      statusEl.textContent = `Step ${steps[i][0]} — ${steps[i][1]}`;
+      if (i === 4 || i === 6) {
+        state.paid += i === 4 ? 4 : 8; state.receipts++; refresh();
+        out(`✓ paid ${i === 4 ? 4 : 8} tUSD8 · tx ${hash(steps[i][1])}`, "ok");
+        out(`  receipt: ${i === 4 ? "0xinv1" : "0xinv2"} · explorer-test.qday.info/tx/…`, "dim");
+      } else if (i === 5) {
+        out("✓ human approved one 8 tUSD8 payment (single use)", "ok");
+      } else if (i === 8) {
+        state.revoked = true;
+        out("✓ session revoked — agent can no longer spend", "ok");
+      } else {
+        out(`✓ ${steps[i][1].toLowerCase()}`, "");
+      }
+      await wait(520);
+    }
+    document.querySelectorAll(".step").forEach(el => el.classList.add("done"));
+    statusEl.textContent = "Complete — 12 tUSD8 settled, 2 receipts, key revoked.";
+    document.getElementById("run").disabled = false;
+    running = false;
+  }
+
+  function reset(clear = true) {
+    state = { paid: 0, receipts: 0, revoked: false };
+    refresh();
+    document.querySelectorAll(".step").forEach(el => el.classList.remove("active", "done"));
+    if (clear) { consoleEl.innerHTML = ""; statusEl.textContent = "Idle. Press “Run simulated flow”."; }
+  }
+
+  document.getElementById("run").addEventListener("click", run);
+  document.getElementById("reset").addEventListener("click", () => reset());
+
+  const failures = {
+    cap:   "Blocked: payment exceeds the 10 tUSD8 per-transaction cap. Nothing moved.",
+    expired: "Blocked: the session key expired. The principal must issue a new one.",
+    revoked: "Blocked: this key was revoked by the principal. Funds are safe in the account.",
+    payee: "Blocked: payee is not registered with an ERC-8004 identity. Confirmation of Payee failed.",
+  };
+  document.querySelectorAll("[data-fail]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.fail;
+      out(`✗ ${failures[key]}`, "err");
+      statusEl.textContent = "Failure path handled with a clear, plain-language message.";
+    });
+  });
+  refresh();
+</script>
+</body>
+</html>
