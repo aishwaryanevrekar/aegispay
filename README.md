@@ -18,9 +18,23 @@ The project was built from scratch for **Aevum Builder Challenge #1** by **Aishw
 
 ---
 
-## 🔎 Keywords / Topics
+## 🔎 Tags & discoverability
 
-`#Aevum` `#QDay` `#tUSD8` `#AevumBuilderChallenge` `#DoraHacks` `#Hackathon` `#Solidity` `#Foundry` `#EVM` `#SmartAccount` `#AccountAbstraction` `#ERC4337` `#ERC8004` `#SessionKeys` `#AgenticPayments` `#AIAgents` `#AutonomousAgents` `#Stablecoin` `#ConfirmationOfPayee` `#DecentralizedPayments` `#Web3` `#DeFi` `#Payments` `#SmartContracts` `#OpenSource` `#MIT`
+These tags connect the project to the hackathon, the chain, the standards used, and the problem it solves. They are used in this README, in the YouTube description, and as GitHub repository topics.
+
+| Group | Tags | Why it matters |
+|---|---|---|
+| **Event & network** | `#Aevum` `#QDay` `#tUSD8` `#AevumBuilderChallenge` `#DoraHacks` `#Hackathon` `#QDayTestnet` | Links the build to the exact hackathon, chain (44005) and official stablecoin judges are looking for. |
+| **Smart-contract stack** | `#Solidity` `#Foundry` `#EVM` `#SmartContracts` `#OpenZeppelin` `#Viem` | Helps Solidity/Foundry developers find and reproduce the work. |
+| **Account abstraction** | `#SmartAccount` `#AccountAbstraction` `#ERC4337` `#SessionKeys` `#SpendCaps` `#KillSwitch` | Signals the core technical contribution: scoped, revocable delegation. |
+| **Identity & standards** | `#ERC8004` `#ConfirmationOfPayee` `#ReputationRegistry` `#IdentityBinding` | Maps directly to the official Confirmation of Payee track and identity primitives. |
+| **Agents & payments** | `#AgenticPayments` `#AIAgents` `#AutonomousAgents` `#AgenticCommerce` `#ProgrammablePayments` `#Stablecoin` `#DecentralizedPayments` `#Payments` `#DeFi` | Reaches the Native AI Assistants and payments audience. |
+| **Safety & trust** | `#LeastPrivilege` `#HumanApproval` `#AuditTrail` `#SessionExpiry` `#Web3` | Highlights the safety criteria weighted by the judges. |
+| **Open source** | `#OpenSource` `#MIT` `#BuildInPublic` | Makes the licensing and originality explicit. |
+
+**All tags in one line (paste into YouTube / GitHub topics):**
+
+`Aevum, QDay, tUSD8, AevumBuilderChallenge, DoraHacks, Hackathon, QDayTestnet, Solidity, Foundry, EVM, SmartContracts, Viem, SmartAccount, AccountAbstraction, ERC4337, SessionKeys, SpendCaps, KillSwitch, ERC8004, ConfirmationOfPayee, ReputationRegistry, IdentityBinding, AgenticPayments, AIAgents, AutonomousAgents, AgenticCommerce, ProgrammablePayments, Stablecoin, DecentralizedPayments, Payments, DeFi, LeastPrivilege, HumanApproval, AuditTrail, SessionExpiry, Web3, OpenSource, MIT, BuildInPublic`
 
 Plain-text keywords: Aevum testnet, QDay, tUSD8 stablecoin, agentic payments, AI agent wallet, scoped session keys, smart account, ERC-8004 identity, reputation registry, confirmation of payee, spend caps, session expiry, human approval, kill switch, Foundry, Solidity, viem, DoraHacks hackathon, Web3 payments.
 

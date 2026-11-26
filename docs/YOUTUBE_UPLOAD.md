@@ -79,7 +79,7 @@ Presented by Aishwarya Nevrekar. Narrated with an Indian English female voice; t
 ## Tags
 
 ```
-Aevum, QDay, tUSD8, Aevum Builder Challenge, DoraHacks, hackathon, Solidity, Foundry, EVM, smart account, account abstraction, ERC-8004, session keys, agentic payments, AI agents, stablecoin, confirmation of payee, decentralized payments, Web3, DeFi, payments, smart contracts, open source, MIT, blockchain hackathon, agentic commerce, programmable payments, post quantum, QDay testnet
+Aevum, QDay, tUSD8, Aevum Builder Challenge, DoraHacks, hackathon, QDay testnet, Solidity, Foundry, EVM, smart contracts, Viem, smart account, account abstraction, ERC-4337, session keys, spend caps, kill switch, ERC-8004, confirmation of payee, reputation registry, identity binding, agentic payments, AI agents, autonomous agents, agentic commerce, programmable payments, stablecoin, decentralized payments, payments, DeFi, least privilege, human approval, audit trail, session expiry, Web3, open source, MIT, build in public, blockchain hackathon, post quantum
 ```
 
 ## Shorts version
