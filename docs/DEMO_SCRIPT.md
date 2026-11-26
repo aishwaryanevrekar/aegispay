@@ -1,5 +1,9 @@
 # Demo video script (2–3 minutes)
 
+**Recorded video:** [`demo/AegisPay-Demo.mp4`](../demo/AegisPay-Demo.mp4) — 2:12, 1280×720, narrated, with an on-screen credit for **Aishwarya Nevrekar**. The narration is a generated text-to-speech voice (not a clone of Aishwarya's real voice); the visuals, on-chain facts and script are all from this repository.
+
+The script below is the narration used in that video, plus optional timing notes if you re-record with your own voice.
+
 Record while running `make demo` locally or `node --env-file=.env demo/agent-runner.mjs` on Aevum. Keep the explorer open in a second tab for verifiable tx hashes.
 
 ## 0:00–0:20 — Hook

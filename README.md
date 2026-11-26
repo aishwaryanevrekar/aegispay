@@ -45,6 +45,7 @@ flowchart LR
 | `test/` | 21 Foundry tests, including all failure paths |
 | `script/Deploy.s.sol` | Deploy stack (real tUSD8 on chain 44005) |
 | `script/DemoFlow.s.sol` | Local Anvil end-to-end walkthrough |
+| `demo/AegisPay-Demo.mp4` | 2:12 narrated demo video, credited to Aishwarya Nevrekar |
 | `demo/index.html` | Responsive interactive UI with simulation + plain-language errors |
 | `demo/agent-runner.mjs` | Live testnet runner with retries, receipts and explorer links |
 | `docs/` | Ideation, architecture, demo script, submission, originality |

@@ -6,7 +6,7 @@
 
 **Repository:** `https://github.com/aishwaryanevrekar/aegispay` (public, MIT)
 
-**Demo:** `demo/index.html` (interactive UI) + `docs/DEMO_SCRIPT.md` (2–3 min video) + `demo/agent-runner.mjs` (live testnet runner printing tx hashes)
+**Demo:** [`demo/AegisPay-Demo.mp4`](../demo/AegisPay-Demo.mp4) (2:12 narrated video) + `demo/index.html` (interactive UI) + `docs/DEMO_SCRIPT.md` (script) + `demo/agent-runner.mjs` (live testnet runner printing tx hashes). Video credit: Aishwarya Nevrekar.
 
 **Live deployment:** [`docs/LIVE_DEPLOYMENT.md`](LIVE_DEPLOYMENT.md) — deployed contracts, roles and 12 confirmed Aevum transactions with explorer links.
 
