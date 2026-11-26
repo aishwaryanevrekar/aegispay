@@ -126,8 +126,8 @@ Full addresses, roles and transaction hashes: [`docs/LIVE_DEPLOYMENT.md`](docs/L
 | `test/` | 21 Foundry tests, including all failure paths |
 | `script/Deploy.s.sol` | Deploy stack (real tUSD8 on chain 44005) |
 | `script/DemoFlow.s.sol` | Local Anvil end-to-end walkthrough |
-| `demo/AegisPay-Demo.mp4` | Full 2:12 narrated demo video |
-| `demo/AegisPay-Highlights.mp4` | 0:54 safety + results highlights |
+| `demo/AegisPay-Demo.mp4` | Full 2:19 narrated demo video (Indian English female voice) |
+| `demo/AegisPay-Highlights.mp4` | 1:01 safety + results highlights |
 | `demo/preview.gif` | Looping preview shown above |
 | `demo/screenshots/` | Highlight slides from the video |
 | `demo/index.html` | Responsive interactive UI with simulation + plain-language errors |
